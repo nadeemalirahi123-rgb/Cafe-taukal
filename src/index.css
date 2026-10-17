@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-gold: #c9a24b;
+  --color-gold-soft: #e3c67f;
+  --color-ink: #0d0d0f;
+  --color-coal: #16161a;
+  --color-cream: #f7f1e6;
+  --color-maroon: #6d1f2b;
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: #1b1b1f;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background-color: var(--color-ink);
+  color: #efe9df;
+}
+
+[dir="rtl"] body {
+  letter-spacing: 0;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #000;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(201, 162, 75, 0.25);
+}
+
+.gold-text {
+  background: linear-gradient(100deg, #c9a24b, #f2dfae 45%, #c9a24b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.12) 37%, rgba(0, 0, 0, 0.06) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.3s ease infinite;
+}
+.dark .shimmer {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.12) 37%, rgba(255, 255, 255, 0.05) 63%);
+  background-size: 400% 100%;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c9a24b66; border-radius: 9px; }
